@@ -90,7 +90,19 @@ public class DarrenChui extends Student implements SpecialInterestOrHobby
      * This method allows the user to interact with the student through a question and answer interface, and provides
      * a mechanism that allows the student to sit down once the Q&A session ends.
      */
-
+    
+    public void askSitDown(String q) {
+        sitDownLoop:
+        while (q != "yes") {
+            q=Greenfoot.ask("May I sit down?");
+            if (q.equals("yes")) {
+                Greenfoot.delay(10);
+                sitDown();
+                break sitDownLoop;
+            }
+        }
+    }
+    
     public void answerQuestion(){
         // 2D array for storing questions
         String questionsArray [][] = new String [2] [5];
@@ -105,21 +117,21 @@ public class DarrenChui extends Student implements SpecialInterestOrHobby
         
         // asks user what question they have and returns an answer
         String q = Greenfoot.ask("What would you like to know?");
+        
+        boolean understand; 
+        
+        keyWordSearch:
         for (int r = 0; r < questionsArray.length; r++){
             for (int c = 0; c < questionsArray[r].length; c++) {
                 if (q.contains(questionsArray[r][c])) {
                     q = Greenfoot.ask(questionsArray[r+1][c] + " Press enter to continue.");
+                    askSitDown(q);
+                    break keyWordSearch;
                 }
-                else {
-                    q = Greenfoot.ask("I don't undestand the question... Press enter to continue.");
-                }
-                while (q != "yes") {
-                    q=Greenfoot.ask("May I sit down?");
-                    if (q.equals("yes")) {
-                        Greenfoot.delay(10);
-                        sitDown();
-                        return;
-                    }
+                if (!q.contains(questionsArray[r][c])) {
+                    q = Greenfoot.ask("I don't understand the question... Press enter to continue.");
+                    askSitDown(q);
+                    break keyWordSearch;
                 }
             }
         }
