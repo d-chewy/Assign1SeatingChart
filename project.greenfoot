@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Mon Aug 26 22:59:23 PDT 2019
+#Tue Aug 27 10:12:41 PDT 2019
 target24.type=ClassTarget
 target16.name=MatthewAdrian
 target13.editor.width=900
@@ -216,7 +216,7 @@ target39.typeParameters=
 class.JennyLi.superclass=Student
 target4.type=ClassTarget
 class.LemarPopal.superclass=Student
-editor.fx.0.height=739
+editor.fx.0.height=1050
 target28.type=ClassTarget
 dependency3.type=UsesDependency
 target13.showInterface=false
@@ -535,7 +535,7 @@ target27.editor.height=700
 target11.height=50
 target8.width=140
 target36.typeParameters=
-editor.fx.0.width=886
+editor.fx.0.width=1938
 class.ArinaSobol.superclass=Student
 target39.name=CJYu
 target22.type=ClassTarget
@@ -581,8 +581,8 @@ dependency19.to=MatthewAdrian
 dependency9.type=UsesDependency
 target21.editor.height=700
 class.GustavoSilvera.superclass=Student
-editor.fx.0.y=100
-editor.fx.0.x=552
+editor.fx.0.y=-9
+editor.fx.0.x=-9
 dependency8.to=GustavoSilvera
 class.AshishPanjwani.superclass=Student
 target26.showInterface=false

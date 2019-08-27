@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class DarrenChui extends Student implements SpecialInterestOrHobby
 {
+
     /**
      * Constructor for the DarrenChui class.
      * Constructors are special methods with the same exact name as the class name.  
@@ -62,7 +63,6 @@ public class DarrenChui extends Student implements SpecialInterestOrHobby
                 System.out.println(""); // Print a blank line to create space between any student output.
                 getName();
                 sayName(soundFile);
-                
                 myHobby("I like to play competitive shooter or survival sandbox video games.");
                 
                 circleClass();  // Darren Chui's special method
@@ -103,8 +103,10 @@ public class DarrenChui extends Student implements SpecialInterestOrHobby
      */
     
     public void answerQuestion(){
+        int numQuestions = 7;
+        
         // 2D array for storing questions and answers
-        String questionsArray [][] = new String [2] [5];
+        String questionsArray [][] = new String [2] [numQuestions];
         
         // adds questions and answers to the array
         questionsArray[0][0] = "hard";
@@ -121,6 +123,12 @@ public class DarrenChui extends Student implements SpecialInterestOrHobby
         
         questionsArray[0][4] = "cartoon";
         questionsArray[1][4] = "My favorite cartoon is Avatar: The Last Airbender...";
+        
+        questionsArray[0][5] = "minecraft";
+        questionsArray[1][5] = "I play Minecraft on the hypixel.net server and the official Dublin High School server owned by Jacob Sommer...";
+        
+        questionsArray[0][6] = "classes";
+        questionsArray[1][6] = "I am taking Trig Precalc, AP Chem, AP Lang, APCSA, AP Mandarin, and APUSH as of Junior year 2019-2020...";
         
         // asks user what question they have and returns an answer
         String q = Greenfoot.ask("What would you like to know?");
