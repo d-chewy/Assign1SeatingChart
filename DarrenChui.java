@@ -82,8 +82,7 @@ public class DarrenChui extends Student implements SpecialInterestOrHobby
     }
     
     /**
-     * This method allows the user to interact with the student through a question and answer interface, and provides
-     * a mechanism that allows the student to sit down once the Q&A session ends.
+     * Method asks user if the actor can sit back down until granted privilege.
      */
     
     public void askSitDown(String q) {
@@ -97,6 +96,11 @@ public class DarrenChui extends Student implements SpecialInterestOrHobby
             }
         }
     }
+    
+    /**
+     * This method allows the user to interact with the student through a question and answer interface, and provides
+     * a mechanism that allows the student to sit down once the Q&A session ends.
+     */
     
     public void answerQuestion(){
         // 2D array for storing questions and answers
@@ -193,6 +197,7 @@ public class DarrenChui extends Student implements SpecialInterestOrHobby
         returnToSeat();
     }
     
+    // prints hobbies in terminal window
     public void myHobby(String s) {
              System.out.println(s);
     }
