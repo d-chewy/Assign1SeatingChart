@@ -31,16 +31,9 @@ public class Classroom extends World
    
      private void prepare()
     {
-        // Add three lines to this doc with your class constructor and your row and seat number
-        // Make sure to match your first and last name to the class file you created.
-
-        /* Example */
+        //spanwns Darren Chui
         DarrenChui darrenchui = new DarrenChui("Darren", "Chui", 1, 4);
         addObject(darrenchui, 1, 4);
         darrenchui.sitDown();
-         
-        
-
-
     }  
 }
