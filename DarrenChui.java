@@ -60,6 +60,7 @@ public class DarrenChui extends Student implements SpecialInterestOrHobby
             if (sitting){
                 sitting=false;
                 setImage(standingFile);
+                getImage().mirrorHorizontally();
                 System.out.println(""); // Print a blank line to create space between any student output.
                 getName();
                 sayName(soundFile);
@@ -199,7 +200,7 @@ public class DarrenChui extends Student implements SpecialInterestOrHobby
         for (int i=0;i<32;i++) {
             setLocation(Greenfoot.getRandomNumber(10), Greenfoot.getRandomNumber(5));
             getImage().rotate(360/32);
-            Greenfoot.delay(2);
+            Greenfoot.delay(1);
         }
         Greenfoot.delay(20);
         returnToSeat();
