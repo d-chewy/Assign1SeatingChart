@@ -19,7 +19,7 @@ public class Classroom extends World
     public Classroom()
     {    
         // Create a new world with 10x6 cells with a cell size of 130x130 pixels.
-        super(10, 6, 130); 
+        super(12, 6, 130); 
 
         prepare();
     }

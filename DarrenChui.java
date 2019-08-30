@@ -27,8 +27,8 @@ public class DarrenChui extends Student implements SpecialInterestOrHobby
         myRow=r;
         mySeat=s;
         portraitFile=f.toLowerCase()+l.toLowerCase()+".jpg";    // Make sure to name your image files firstlast.jpg, all lowercase!!!
-        standingFile=firstName.toLowerCase()+ lastName.toLowerCase()+"-standing.jpg";
-        soundFile=f.toLowerCase()+l.toLowerCase()+".mp3";  // Make sure to name your sound files firstlast.wav, all lowercase!!!
+        standingFile=firstName.toLowerCase()+ lastName.toLowerCase()+"-standing.png";
+        soundFile=f.toLowerCase()+l.toLowerCase()+".wav";  // Make sure to name your sound files firstlast.wav, all lowercase!!!
         setImage(portraitFile);
         sitting=true;
     }
@@ -37,16 +37,16 @@ public class DarrenChui extends Student implements SpecialInterestOrHobby
      * Default constructor, passed in name and seating location
      */
     public DarrenChui() {
-       firstName="Darren";
-       lastName="Chui";
-       myRow=1;
-       mySeat=4;
-       // imgFile=firstName.toLowerCase()+ lastName.toLowerCase()+".jpg";
-       portraitFile=firstName.toLowerCase()+ lastName.toLowerCase()+".jpg";
-       standingFile=firstName.toLowerCase()+ lastName.toLowerCase()+"-standing.jpg";
-       soundFile=firstName.toLowerCase()+ lastName.toLowerCase()+".mp3";
-       setImage(portraitFile);
-       sitting=true;
+        firstName="Darren";
+        lastName="Chui";
+        myRow=1;
+        mySeat=4;
+        // imgFile=firstName.toLowerCase()+ lastName.toLowerCase()+".jpg";
+        portraitFile=firstName.toLowerCase()+ lastName.toLowerCase()+".jpg";
+        standingFile=firstName.toLowerCase()+ lastName.toLowerCase()+"-standing.png";
+        soundFile=firstName.toLowerCase()+ lastName.toLowerCase()+".wav";
+        setImage(portraitFile);
+        sitting=true;
     }
     
      /**
@@ -55,7 +55,6 @@ public class DarrenChui extends Student implements SpecialInterestOrHobby
      */   
     public void act() 
     {
-        // Add your action code here.
         if(Greenfoot.mouseClicked(this)){
             if (sitting){
                 sitting=false;
@@ -132,7 +131,7 @@ public class DarrenChui extends Student implements SpecialInterestOrHobby
         questionsArray[1][6] = "I am taking Trig Precalc, AP Chem, AP Lang, APCSA, AP Mandarin, and APUSH as of Junior year 2019-2020...";
         
         // asks user what question they have and returns an answer
-        String q = Greenfoot.ask("What would you like to know?");
+        String q = Greenfoot.ask("Whew, I somehow made my way out of that isekai... More importantly, what would you like to know?");
         
         // flags whether or not question is in 2d array
         boolean understand = false; 
@@ -169,41 +168,54 @@ public class DarrenChui extends Student implements SpecialInterestOrHobby
      * This is a local method specific to the DarrenChui class used to animate the character once the image is clicked on.
      */
     public void circleClass(){
-        setLocation(0,0);
-         Greenfoot.delay(10);
-        // move right
-        for (int i=1;i<=9;i++){
-            setLocation(i,0);
-            Greenfoot.delay(4);
+        int [][] rdmTrans = new int [4][4];
+        for (int r = 0; r < rdmTrans.length; r++) {
+            for (int c = 0; c < rdmTrans[r].length; c++) {
+                rdmTrans[r][c] = Greenfoot.getRandomNumber(255);
+            }
         }
-        // move back
-        for (int i=1;i<=5;i++){
-            setLocation(9,i);
-            Greenfoot.delay(4);
+        
+        setLocation(0,1);
+        Greenfoot.delay(10);
+        // move right
+        for (int i=1;i<=10;i++){
+            setLocation(i,1);
+            Greenfoot.delay(2);
+        }
+        // move down
+        for (int i=1;i<=6;i++){
+            setLocation(10,i);
+            Greenfoot.delay(2);
         }      
          // move left
-        for (int i=9;i>=0;i--){
-            setLocation(i,5);
-            Greenfoot.delay(4);
+        this.getImage().mirrorHorizontally();
+        for (int i=10;i>=0;i--){
+            setLocation(i,6);
+            Greenfoot.delay(2);
         }      
-              // move Forward
-        for (int i=5;i>=0;i--){
+        // move up
+        for (int i=6;i>=0;i--){
             setLocation(0,i);
-            Greenfoot.delay(4);
+            Greenfoot.delay(2);
         } 
-              // move diagonally and rotate
-        for (int i=0;i<=6;i++) {
+        // move diagonally and rotate
+        for (int i=1;i<=6;i++) {
             setLocation(i,i);
-            getImage().rotate(360/7);
-            Greenfoot.delay(4);
+            getImage().rotate(360/6);
+            Greenfoot.delay(2);
         }
+        // randomly telport in and out of existence
         for (int i=0;i<32;i++) {
             setLocation(Greenfoot.getRandomNumber(10), Greenfoot.getRandomNumber(5));
             getImage().rotate(360/32);
-            Greenfoot.delay(1);
+            getImage().setTransparency(rdmTrans[Greenfoot.getRandomNumber(3)][Greenfoot.getRandomNumber(3)]);
+            Greenfoot.delay(4);
         }
-        Greenfoot.delay(20);
         returnToSeat();
+        Greenfoot.delay(200);
+        
+        truck truck = new truck();
+        getWorld().addObject(truck, 10, 1);
     }
     
     // prints hobbies in terminal window
